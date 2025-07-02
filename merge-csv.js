@@ -28,12 +28,16 @@ async function mergeCsvFiles() {
       rows.push(row);
     }
 
+  await new Promise((resolve, reject) => {
     fastCsv
       .write(rows, { headers: !isHeaderWritten })
       .on("finish", () => {
         console.log(`${file} merged successfully!`);
+        resolve();
       })
+      .on("error", reject)
       .pipe(writeStream, { end: false });
+  });
 
     isHeaderWritten = true; // Write headers only once
   }
