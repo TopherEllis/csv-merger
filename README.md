@@ -19,8 +19,9 @@ npm install
 
 ## Usage
 
-1. Place the CSV files you want to merge into the files folder.
-2. Run the script to merge the CSV files:
+1. Create a `files` folder in the project root directory.
+2. Place the CSV files you want to merge into the files folder.
+3. Run the script to merge the CSV files:
 
 ```sh
 node merge-csv.js
